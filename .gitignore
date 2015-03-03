@@ -1,3 +1,4 @@
-.lein-failures
+.lein-*
+.nrepl-*
 doc/
 target/

@@ -1,8 +1,7 @@
-(ns hndrx-tests.core-test
+(ns hndrx-tests.monologue-tests
   (:require [clojure.test :refer :all]
-            [hndrx-tests.core :refer :all]))
-
-(use 'clj-webdriver.taxi)
+            [clj-webdriver.taxi :refer :all]
+            [hndrx-tests.utils :refer :all]))
 
 (defn setup []
   (set-driver! (new-driver {:browser :chrome}))
@@ -15,15 +14,6 @@
   (setup)
   (f)
   (teardown))
-
-(defn find-els [sel]
-  (css-finder sel))
-
-(defn find-el [sel]
-  (first (find-els sel)))
-
-(defn press-enter [sel]
-  (send-keys sel (clj-webdriver.core/key-code :enter)))
 
 (deftest header-contains-project-name
   (is (text (find-el "h1"))
